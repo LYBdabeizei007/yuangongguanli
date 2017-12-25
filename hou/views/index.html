@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../public/javascripts/jquery-3.1.1.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="../public/javascripts/js.js"></script>
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <link rel="stylesheet" href="../public/stylesheets/animate.css">
+</head>
+<body>
+<div class="box">
+    <div class="box1">
+        <div class="header">
+            <div class="logo">
+                <img src="../public/images/logo.png" alt="..." class="img-rounded">
+            </div>
+            <div class="login">
+                欢迎您,<span>社板</span><span>退出登录</span>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="tab">
+            <div class="day">
+                <img src="../public/images/logo.png" alt="..." class="img-rounded">
+            </div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs nav-stacked" role="tablist" >
+                <li role="presentation" class="active"><a href="#yuangong" aria-controls="home" role="tab" data-toggle="tab">员工管理</a></li>
+                <li role="presentation"><a href="#news" aria-controls="profile" role="tab" data-toggle="tab">新闻公告管理</a></li>
+                <li role="presentation"><a href="#recruit" aria-controls="messages" role="tab" data-toggle="tab">招聘信息管理</a></li>
+                <li role="presentation"><a href="#clocking" aria-controls="settings" role="tab" data-toggle="tab">考勤管理</a></li>
+                <li role="presentation"><a href="#addyuangong" aria-controls="home" role="tab" data-toggle="tab">添加员工</a></li>
+                <li role="presentation"><a href="#addnews" aria-controls="profile" role="tab" data-toggle="tab">新闻公告管理</a></li>
+                <li role="presentation"><a href="#addrecruit" aria-controls="messages" role="tab" data-toggle="tab">招聘信息管理</a></li>
+                <li role="presentation"><a href="#addclocking" aria-controls="settings" role="tab" data-toggle="tab">考勤管理</a></li>
+            </ul>
+        </div>
+        <div class="detail">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active animated lightSpeedIn table-responsive" id="yuangong">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>年龄</th>
+                            <th>部门</th>
+                            <th>工号</th>
+                            <th>删除</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr>
+                            <td>社长</td>
+                            <td>男</td>
+                            <td>30</td>
+                            <td>保洁部</td>
+                            <td>3838438</td>
+                            <td><a class="btn btn-default" href="#" role="button">删除</a></td>
+                            <td><a class="btn btn-default" href="yuangongxg.html" role="button">点击操作</a></td>
+                        </tr>
+                    </table>
+                    <div class="fenye">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane animated slideInUp" id="news">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>标题</th>
+                            <th>详细内容</th>
+                            <th>删除</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr>
+                            <td>社板窜了</td>
+                            <td>社板因为一天晚上偷吃我东西导致跑肚拉稀，一宿上20多次厕所</td>
+                            <td><a class="btn btn-default" href="#" role="button">删除</a></td>
+                            <td><a class="btn btn-default" href="newsxg.html" role="button">点击操作</a></td>
+                        </tr>
+                    </table>
+                    <div class="fenye">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane animated zoomIn" id="recruit">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>招聘职位</th>
+                            <th>删除</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr>
+                            <td>保洁副队长</td>
+                            <td><a class="btn btn-default" href="#" role="button">删除</a></td>
+                            <td><a class="btn btn-default" href="recruitxg.html" role="button">点击操作</a></td>
+                        </tr>
+                    </table>
+                    <div class="fenye">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane animated rollIn" id="clocking">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>年龄</th>
+                            <th>部门</th>
+                            <th>删除</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr>
+                            <td>社会摇</td>
+                            <td>男</td>
+                            <td>30</td>
+                            <td>保洁部</td>
+                            <td><a class="btn btn-default" href="#" role="button">删除</a></td>
+                            <td><a class="btn btn-default" href="clockingxg.html" role="button">点击操作</a></td>
+                        </tr>
+                    </table>
+                    <div class="fenye">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane animated lightSpeedIn table-responsive" id="addyuangong">
+                    <div class="main1">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">* 姓名</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="sex">* 性别</label>
+                                <input type="text" class="form-control" id="sex">
+                            </div>
+                            <div class="form-group">
+                                <label for="age">* 年龄</label>
+                                <input type="text" class="form-control" id="age">
+                            </div>
+                            <div class="form-group">
+                                <label for="tel">* 联系方式</label>
+                                <input type="text" class="form-control" id="tel">
+                            </div>
+                            <div class="form-group">
+                                <label for="birthday">* 生日</label>
+                                <input type="text" class="form-control" id="birthday">
+                            </div>
+                            <div class="form-group">
+                                <label for="province">* 籍贯</label>
+                                <input type="text" class="form-control" id="province">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">* 家庭住址</label>
+                                <input type="text" class="form-control" id="address">
+                            </div>
+                            <div class="form-group">
+                                <label for="school">* 毕业院校</label>
+                                <input type="text" class="form-control" id="school">
+                            </div>
+                            <div class="form-group">
+                                <label for="education">* 学历</label>
+                                <input type="text" class="form-control" id="education">
+                            </div>
+                            <div class="form-group">
+                                <label for="age">* 职位</label>
+                                <input type="text" class="form-control" id="posting">
+                            </div>
+                            <div class="form-group">
+                                <label for="employee">* 工号</label>
+                                <input type="text" class="form-control" id="employee">
+                            </div>
+                            <div class="form-group">
+                                <label for="hobby">爱好</label>
+                                <input type="text" class="form-control" id="hobby">
+                            </div>
+                            <div class="form-group">
+                                <label for="entry">入职时间</label>
+                                <input type="text" class="form-control" id="entry">
+                            </div>
+                            <div class="form-group">
+                                <label for="dimission">上家公司离职时间</label>
+                                <input type="text" class="form-control" id="dimission">
+                            </div>
+                            <div class="form-group">
+                                <label for="marital">婚姻状况</label>
+                                <input type="text" class="form-control" id="marital">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile">员工头像</label>
+                                <input type="file" id="exampleInputFile">
+                                <p class="help-block">上传必须本人头像，清晰且不得有遮挡</p>
+                                <div class="touxiang">
+                                    <img src="../public/images/maomi.jpg" alt="..." class="img-circle">
+                                </div>
+                            </div>
+                            <div class="shangchuan">
+                                <button type="button" class="btn btn-primary btn-lg">添加</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane animated slideInUp table-responsive" id="addnews">
+                    <div class="main1">
+                        <form>
+                            <div class="form-group">
+                                <label for="title">标题</label>
+                                <input type="text" class="form-control" id="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="new">新闻</label>
+                                <textarea class="form-control" rows="3" id="new"></textarea>
+                            </div>
+                        </form>
+                        <div class="shangchuan">
+                            <button type="button" class="btn btn-primary btn-lg">添加</button>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane animated zoomIn table-responsive" id="addrecruit">
+                    741
+                </div>
+                <div role="tabpanel" class="tab-pane animated rollIn table-responsive" id="addclocking">
+                    741
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="banner">
+    <img src="../public/images/banner.jpg" alt="">
+</div>
+</body>
+</html>
