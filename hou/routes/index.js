@@ -8,7 +8,7 @@ var connection=mysql.createPool({
   database:'inform'
 })
 /* GET users listing. */
-//1.Ô±¹¤ÏêÇé½Ó¿Ú
+//1.å‘˜å·¥è¯¦æƒ…æ¥å£
 router.post('/detail', function(req, res, next) {
   res.header('Access-Control-Allow-Origin','*');
   connection.query("SELECT * FROM detail",function(err,rows,files){
@@ -17,7 +17,7 @@ router.post('/detail', function(req, res, next) {
   })
 });
 
-//2.ÓÃ»§µÇÂ¼½Ó¿Ú
+//2.ç”¨æˆ·ç™»å½•æ¥å£
 router.post('/user', function(req, res, next) {
   res.header('Access-Control-Allow-Origin','*');
   connection.query("SELECT * FROM user",function(err,rows,files){
@@ -26,7 +26,7 @@ router.post('/user', function(req, res, next) {
   })
 });
 
-//3.ÓÃ»§×¢²á½Ó¿ÚÏêÏ¸
+//3..ç”¨æˆ·æ³¨å†Œæ¥å£
 router.post('/register', function(req, res, next) {
   res.header('Access-Control-Allow-Origin','*');
   connection.query("SELECT * FROM register",function(err,rows,files){
@@ -34,7 +34,7 @@ router.post('/register', function(req, res, next) {
     	//console.log(rows)
   })
 });
-//4.¹ÜÀíÔ±µÇÂ¼½Ó¿Ú
+//4.ç®¡ç†å‘˜ç™»å½•æ¥å£
 router.post('/register', function(req, res, next) {
 	res.header('Access-Control-Allow-Origin','*');
 	connection.query("SELECT * FROM Administrator",function(err,rows,files){
@@ -42,7 +42,7 @@ router.post('/register', function(req, res, next) {
 	    	//console.log(rows)
 	})
 });
-//5.ºóÌ¨Ôö¼Ó½Ó¿Ú
+//5.åå°å¢åŠ æ¥å£
 router.post('/increase', function(req, res, next) {
   res.header('Access-Control-Allow-Origin','*');
   connection.query("INSERT INTO detail(id,name,sex,age,status,picture,education,employee,entry,tel,hobby,province,address,marital) VALUES(id,name,sex,age,status,picture,education,employee,entry,tel,hobby,province,address,marital)",function(err,rows,files){
@@ -50,7 +50,7 @@ router.post('/increase', function(req, res, next) {
     	//console.log(rows)
   })
 });
-//6.ºóÌ¨É¾³ı½Ó¿Ú
+//6.åå°åˆ é™¤æ¥å£
 router.post('/delete', function(req, res, next) {
   res.header('Access-Control-Allow-Origin','*');
   connection.query("delete from detail where id=1",function(err,rows,files){
@@ -58,15 +58,15 @@ router.post('/delete', function(req, res, next) {
     	//console.log(rows)
   })
 });
-//7.ºóÌ¨ĞŞ¸Ä½Ó¿Ú
+//7.åå°ä¿®æ”¹çš„æ¥å£
 router.post('/change', function(req, res, next) {
   res.header('Access-Control-Allow-Origin','*');
-  connection.query("update detail set field1=value1 where ·¶Î§ ",function(err,rows,files){
+  connection.query("update detail set field1=value1 where ï¿½ï¿½Î§ ",function(err,rows,files){
     	res.send(rows)
     	//console.log(rows)
   })
 });
-//8.²éÑ¯£¨ĞÕÃû£©µÄ½Ó¿Ú
+//8.æŸ¥è¯¢ï¼ˆå§“åï¼‰çš„æ¥å£è¯´æ˜
 router.post('/inquire', function(req, res, next) {
 	res.header('Access-Control-Allow-Origin','*');
 	connection.query("SELECE name FROM detail",function(err,rows,files){
@@ -74,7 +74,7 @@ router.post('/inquire', function(req, res, next) {
 	    	//console.log(rows)
 	})
 });
-//9.Ô±¹¤ÁĞ±íµÄ½Ó¿Ú
+//9.å‘˜å·¥åˆ—è¡¨çš„æ¥å£è¯´æ˜
 router.post('/list', function(req, res, next) {
   res.header('Access-Control-Allow-Origin','*');
   connection.query("SELECT name FROM detail",function(err,rows,files){
@@ -82,7 +82,7 @@ router.post('/list', function(req, res, next) {
     	//console.log(rows)
   })
 });
-//10.ÕĞÆ¸ĞÅÏ¢½Ó¿Ú
+//10.å‘˜å·¥åˆ—è¡¨çš„æ¥å£è¯´æ˜
 router.post('/recruit', function(req, res, next) {
   res.header('Access-Control-Allow-Origin','*');
   connection.query("SELECT name FROM zhaopin",function(err,rows,files){
@@ -90,7 +90,7 @@ router.post('/recruit', function(req, res, next) {
     	//console.log(rows)
   })
 });
-//11.ºóÌ¨ÕĞÆ¸Ôö¼Ó½Ó¿Ú
+//11.åå°æ‹›è˜å¢åŠ æ¥å£
 router.post('/zp_recruit', function(req, res, next) {
   res.header('Access-Control-Allow-Origin','*');
   connection.query("INSERT INTO zhaopin(id,title,content)VALUES(id,title,content)",function(err,rows,files){
@@ -98,24 +98,39 @@ router.post('/zp_recruit', function(req, res, next) {
     	//console.log(rows)
   })
 });
-//12.ÕĞÆ¸ĞÅÏ¢É¾³ı½Ó¿Ú
+//12.åå°æ‹›è˜åˆ é™¤æ¥å£
 router.post('/zp_delete', function(req, res, next) {
   res.header('Access-Control-Allow-Origin','*');
-  connection.query("delete from detail where ·¶Î§",function(err,rows,files){
+  connection.query("delete from detail where ï¿½ï¿½Î§",function(err,rows,files){
     	res.send(rows)
     	//console.log(rows)
   })
 });
-//13.ÕĞÆ¸ĞÅÏ¢É¾³ı½Ó¿Ú
+//13.æ–°é—»ä¿¡æ¯æ¥å£
 router.post('/news', function(req, res, next) {
   res.header('Access-Control-Allow-Origin','*');
-  connection.query("delete from detail where ·¶Î§",function(err,rows,files){
+  connection.query("delete from detail where ï¿½ï¿½Î§",function(err,rows,files){
     	res.send(rows)
     	//console.log(rows)
   })
 });
-//14.ĞÂÎÅĞÅÏ¢½Ó¿Ú
+//14.æ–°é—»å¢åŠ æ¥å£
 router.post('/news_zj', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin','*');
+  connection.query("SELECT * FROM xinwen",function(err,rows,files){
+    	res.send(rows)
+    	//console.log(rows)
+  })
+});
+//15.router.post('/news_zj', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin','*');
+  connection.query("SELECT * FROM xinwen",function(err,rows,files){
+    	res.send(rows)
+    	//console.log(rows)
+  })
+});
+//16.è€ƒå‹¤æ¥å£
+router.post('/clocking', function(req, res, next) {
   res.header('Access-Control-Allow-Origin','*');
   connection.query("SELECT * FROM xinwen",function(err,rows,files){
     	res.send(rows)
