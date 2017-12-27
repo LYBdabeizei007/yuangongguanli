@@ -1,0 +1,45 @@
+
+.tab{
+	width:100%;
+	padding: 0 5%
+}
+.tab1,.tab2{
+	float: left
+}
+.tab1{
+	width:10%;
+}
+.tab2{
+	width:80%;
+}
+.Tab-h2{
+	text-align: center;
+}
+.Tab-box{
+	width: 100%;
+	padding:10px;
+}
+.Tab-box li{
+	height: 50px;
+	margin: 10px;
+}
+.Tab-box li img{
+	width: 40px;
+	height: 40px;
+}
+.Tab-box li span{
+	display: block;
+	width: 30%;
+	float: left;
+	text-align: center;
+	line-height: 50px;
+}
+.Tab-box li span:nth-Child(1){
+     /*text-align: left;*/
+}
+.Tab-box li:hover span{
+       color: #00B4A5;
+}
+
+
+
