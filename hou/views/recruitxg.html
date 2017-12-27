@@ -12,9 +12,52 @@
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="../public/javascripts/js.js"></script>
     <link rel="stylesheet" href="../public/stylesheets/recruitxg.css">
     <link rel="stylesheet" href="../public/stylesheets/animate.css">
+    <script>
+        $(function () {
+            let id=window.location.href.split('=')[1]
+            $.ajax({
+                url:'http://localhost:3000/id3',
+                type:'POST',
+                data:{
+                    id
+                },
+                success:function (data) {
+                    $('#gangwei').val(data[0].gangwei)
+                    $('#jingyan').val(data[0].jingyan)
+                    $('#yaoqiu').val(data[0].yaoqiu)
+                    $('#fuli').val(data[0].fuli)
+                }
+            })
+            $('#updata3').click(function () {
+                let [
+                    gangwei,
+                    jingyan,
+                    yaoqiu,
+                    fuli
+                ]=[
+                    $('#gangwei').val(),
+                    $('#jingyan').val(),
+                    $('#yaoqiu').val(),
+                    $('#fuli').val()
+                ]
+                $.ajax({
+                    url:'http://localhost:3000/updata3',
+                    type:'POST',
+                    data:{
+                        gangwei,
+                        jingyan,
+                        yaoqiu,
+                        fuli
+                    },
+                    success:function (data) {
+                        window.location.reload()
+                    }
+                })
+            })
+        })
+    </script>
 </head>
 <body>
 <div class="box">
@@ -51,7 +94,7 @@
             </div>
         </form>
         <div class="shangchuan">
-            <button type="button" class="btn btn-primary btn-lg">修改</button>
+            <button type="button" class="btn btn-primary btn-lg" id="updata3">修改</button>
         </div>
     </div>
 </div>
