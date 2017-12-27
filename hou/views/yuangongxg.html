@@ -12,7 +12,110 @@
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="../public/javascripts/js.js"></script>
+    <script>
+        $(function () {
+            for(i=0;i<101;i++){
+                $('#age').append('<option value="">'+i+'</option>')
+            }
+            let id=window.location.href.split('=')[1]
+            let [I,I2]=[null,null]
+            $.ajax({
+                url:"http://localhost:3000/id",
+                type:"POST",
+                data:{
+                    id
+                },
+                success:function(data){
+                    $('#name').val(data[0].name)
+                    if(data[0].sex=="男"){
+                        $("input[type='radio']").eq(0).attr('checked',true)
+                    }else{
+                        $("input[type='radio']").eq(1).attr('checked',true)
+                    }
+                    $('option').eq(data[0].age+1).attr('selected',true)
+                    $('#tel').val(data[0].tel)
+                    $('#birthday').val(data[0].birthday)
+                    $('#province').val(data[0].province)
+                    $('#address').val(data[0].address)
+                    $('#school').val(data[0].school)
+                    $('#education').val(data[0].education)
+                    $('#posting').val(data[0].posting)
+                    $('#employee').val(data[0].employee)
+                    $('#hobby').val(data[0].hobby)
+                    $('#entry').val(data[0].entry)
+                    $('#dimission').val(data[0].dimission)
+                    $('#marital').val(data[0].marital)
+                    $('#yimg').attr('src',data[0].img)
+                    I=data[0].img
+                    I2=data[0].path
+                }
+            })
+            //后台修改接口
+            $('#update1').click(function () {
+                var [
+                    name,
+                    sex,
+                    age,
+                    tel,
+                    birthday,
+                    province,
+                    address,
+                    school,
+                    education,
+                    posting,
+                    employee,
+                    hobby,
+                    entry,
+                    dimission,
+                    marital
+                ]= [
+                    $('#name').val(),
+                    $("input[type='radio']:checked").val(),
+                    $("option:selected").text(),
+                    $('#tel').val(),
+                    $('#birthday').val(),
+                    $('#province').val(),
+                    $('#address').val(),
+                    $('#school').val(),
+                    $('#education').val(),
+                    $('#posting').val(),
+                    $('#employee').val(),
+                    $('#hobby').val(),
+                    $('#entry').val(),
+                    $('#dimission').val(),
+                    $('#marital').val(),
+                ]
+                $.ajax({
+                    url:"http://localhost:3000/change",
+                    type:"POST",
+                    data:{
+                        name,
+                        sex,
+                        age,
+                        tel,
+                        birthday,
+                        province,
+                        address,
+                        school,
+                        education,
+                        posting,
+                        employee,
+                        hobby,
+                        entry,
+                        dimission,
+                        marital,
+                        I,
+                        I2,
+                        id
+                    },
+                    success:function(e){
+                        window.location.reload()
+                    }
+                })
+            })
+
+        })
+    </script>
     <link rel="stylesheet" href="../public/stylesheets/yuangongxg.css">
     <link rel="stylesheet" href="../public/stylesheets/animate.css">
 </head>
@@ -35,47 +138,58 @@
         <form>
             <div class="form-group">
                 <label for="name">* 姓名</label>
-                <input type="text" class="form-control" id="name">
+                <input type="text" class="form-control" id="name" placeholder="请输入姓名">
             </div>
             <div class="form-group">
-                <label for="sex">* 性别</label>
-                <input type="text" class="form-control" id="sex">
+                <p><label>* 性别</label></p>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="男" checked> 男
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="女"> 女
+                </label>
             </div>
             <div class="form-group">
                 <label for="age">* 年龄</label>
-                <input type="text" class="form-control" id="age">
+                <select class="form-control" id="age">
+                    <option value="">请选择年龄</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="tel">* 联系方式</label>
-                <input type="text" class="form-control" id="tel">
+                <input type="tel" class="form-control" id="tel" placeholder="请输入中国大陆手机号">
             </div>
             <div class="form-group">
                 <label for="birthday">* 生日</label>
-                <input type="text" class="form-control" id="birthday">
+                <input type="text" class="form-control" id="birthday" placeholder="格式:1997-06-20">
             </div>
             <div class="form-group">
                 <label for="province">* 籍贯</label>
-                <input type="text" class="form-control" id="province">
+                <input type="text" class="form-control" id="province" placeholder="必填选项">
             </div>
             <div class="form-group">
                 <label for="address">* 家庭住址</label>
-                <input type="text" class="form-control" id="address">
+                <input type="text" class="form-control" id="address" placeholder="必填选项">
             </div>
             <div class="form-group">
                 <label for="school">* 毕业院校</label>
-                <input type="text" class="form-control" id="school">
+                <input type="text" class="form-control" id="school" placeholder="必填选项">
+                <span></span>
             </div>
             <div class="form-group">
                 <label for="education">* 学历</label>
-                <input type="text" class="form-control" id="education">
+                <input type="text" class="form-control" id="education" placeholder="必填选项">
+                <span></span>
             </div>
             <div class="form-group">
-                <label for="age">* 职位</label>
-                <input type="text" class="form-control" id="posting">
+                <label for="posting">* 职位</label>
+                <input type="text" class="form-control" id="posting" placeholder="必填选项">
+                <span></span>
             </div>
             <div class="form-group">
                 <label for="employee">* 工号</label>
-                <input type="text" class="form-control" id="employee">
+                <input type="text" class="form-control" id="employee" placeholder="请输入6位工号">
+                <span></span>
             </div>
             <div class="form-group">
                 <label for="hobby">爱好</label>
@@ -94,15 +208,15 @@
                 <input type="text" class="form-control" id="marital">
             </div>
             <div class="form-group">
-                <label for="exampleInputFile">员工头像</label>
-                <input type="file" id="exampleInputFile">
+                <label for="file">员工头像</label>
+                <input type="file" id="file">
                 <p class="help-block">上传必须本人头像，清晰且不得有遮挡</p>
                 <div class="touxiang">
-                    <img src="../public/images/maomi.jpg" alt="..." class="img-circle">
+                    <img src="" alt="" class="img-circle" id="yimg">
                 </div>
             </div>
             <div class="shangchuan">
-                <button type="button" class="btn btn-primary btn-lg">修改</button>
+                <button type="button" class="btn btn-primary btn-lg" id="update1">修改</button>
             </div>
         </form>
     </div>

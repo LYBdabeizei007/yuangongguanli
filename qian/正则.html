@@ -1,0 +1,192 @@
+1 <!DOCTYPE html>
+<html>
+ <head>
+<meta charset="UTF-8">
+<title>正则表单验证</title>
+ <style media="screen">
+         .main {
+                  width: 300px;
+                  margin: auto;
+              }
+              
+              .box1,
+              .box2,
+              .box3,
+              .box4,
+             .box5,
+              .box6,
+              .box7 {
+        margin: 10px 0px;
+    }
+    
+    .nam,
+    .pw1,
+    .pw2,
+    .yx,
+    .phone {
+                 width: 220px;
+                 height: 25px;
+                 margin: 5px 0px;
+             }
+             
+             .tips {
+                 font-size: 12px;
+                 color: red;
+                 display: none;
+             }
+             
+             .zc {
+                 width: 60px;
+                 font-size: 18px;
+                 text-align: center;
+                 background: rgb(74, 189, 204);
+                border-radius: 5px;
+                 color: white;
+             }
+         </style>
+     </head>
+    <body>
+         <div class="main">
+             <div class="box1">
+                 <div class="wod">用户名:</div>
+                 <input class="nam" type="text" name="name" value="">
+                 <div class='tips'>用户名长度在20个字符以内</div>
+              </div>
+  
+              <div class="box2">
+                  <div class="wod">
+                      密码:
+                  </div>
+                  <input class="pw1" type="password" name="name" value="">
+                  <div class='tips'>请输入6-20位密码(必须有大小写及数字)</div>
+              </div>
+  
+              <div class="box3">
+                  <div class="wod">
+                      确认密码:
+                  </div>
+                  <input class="pw2" type="password" name="name" value="">
+                  <div class='tips'>密码与上面输入一致</div>
+              </div>
+  
+              <div class="box4">
+                  <div class="wod">
+                      邮箱:
+                  </div>
+                  <input class="yx" type="email" name="name" value="">
+                  <div class='tips'>请输入电子邮件</div>
+              </div>
+  
+              <div class="box5">
+                  <div class="wod">
+                      手机号:
+                 </div>
+                 <input class="phone" type="text" name="name" value="">
+                 <div class="tips">
+                     请输入11位手机号
+              </div>
+             </div>
+ 
+             <div class="box6">
+                 性别:男<input class="xb" type='radio' name="name" value="" checked> 女
+                 <input class="xb" type='radio' name="name" value="">
+
+             </div>
+ 
+             <div class="box7">
+                 <button class="zc" type="button" name="button">注册</button>
+             </div>
+ 
+        </div>
+     </body>
+     <script type="text/javascript">
+     var tips = document.getElementsByClassName('tips');
+         //用户名验证
+         var nm=document.querySelector('.nam');         nm.onblur=function () {
+             var nmNum=nm.value;
+             var re=/^\w{6,20}$/g;
+            var rez=re.test(nmNum);
+            if (rez==true) {
+                tips[0].style.display='block';
+                tips[0].innerHTML = '格式正确';
+             }else if (nmNum=='') {
+                 tips[0].style.display='block';
+                 tips[0].innerHTML = '用户名不能为空';
+             }else{
+                 tips[0].style.display='block';    
+                 nm.value='';
+             }
+         }
+         
+        //密码验证
+         var pw1=document.querySelector('.pw1');
+         pw1.onblur=function  () {
+             var pw1Num=pw1.value;
+             var re=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{6,20}$/g;  //密码必须有大小写字母和数字且6-20位
+             var rez=re.test(pw1Num);
+             if (rez==true) {
+                 tips[1].style.display='block';
+                 tips[1].innerHTML = '格式正确';
+             }else if(pw1Num==''){
+                 tips[1].style.display='block';
+                 tips[1].innerHTML = '密码不能为空';            
+             }else{
+                 tips[1].style.display='block';
+             }
+         }
+         
+         //确认密码验证
+         var pw2=document.querySelector('.pw2');
+         pw2.onblur=function () {
+             if (pw2.value==pw1.value&&pw2.value!='') {
+                 tips[2].style.display='block';
+                 tips[2].innerHTML = '两次输入一致';
+          }else if (pw2.value=='') {
+                 tips[2].style.display='block';
+                 tips[2].innerHTML = '不能为空';
+             }else{
+                 tips[2].style.display='block';
+                 tips[2].innerHTML = '两次输入不一致';
+                 pw2.value='';
+             }
+         }
+         var phone = document.querySelector('.phone');
+         
+         //验证手机号码
+         phone.onblur = function() {
+             var phNumber = phone.value;
+             var re = /1(31|32|34|35|36|37|38|39|50|57|58|86|87|88)[0-9]{8}/g;
+             var wrResult = re.test(phNumber);
+             if(wrResult == true && phNumber.length == 11) {
+                 tips[4].style.display = 'block';
+                 tips[4].innerHTML = '格式正确';
+             } else if(phNumber == '') {
+                 tips[4].style.display = 'block';
+             } else {
+                 tips[4].style.display = 'block';
+                 tips[4].innerHTML = '请输入正确的手机号';
+                 phone.value = '';
+             }
+         }
+         
+         //验证邮箱
+         var yx = document.querySelector('.yx');
+        yx.onblur = function() {
+             var yxads = yx.value;
+             var reg = /^\w+@[a-z0-9]+(\.[a-z]{2,3}){1,2}$/g;
+             var yxResult = reg.test(yxads);
+             if(yxResult == true) {
+                 tips[3].style.display = 'block';
+                 tips[3].innerHTML = '格式正确';
+             } else if(yxads == '') {
+                 tips[3].style.display = 'block';
+                 tips[3].innerHTML = '请输入邮箱地址';
+             } else {
+                 tips[3].style.display = 'block';
+                 tips[3].innerHTML = '格式不正确';
+                 yx.value = '';
+             }
+         }
+     </script>
+ 
+ </html>

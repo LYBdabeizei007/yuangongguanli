@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>登录</title>
+<script src="src/assets/js/jquery-1.9.1.min.js.js"></script>
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<style>
+*{
+     padding: 0;
+     margin: 0;
+     list-style: none;
+}
+.warp {
+    position: absolute;
+  width: 100%;
+  height: 100%;
+background: #aac4bc;
+background: -moz-linear-gradient(-45deg,  #aac4bc 0%, #eca8a8 100%, #eed5a9 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  #aac4bc 0%,#eca8a8 100%,#eed5a9 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #aac4bc 0%,#eca8a8 100%,#eed5a9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfd8dc', endColorstr='#b0bec5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+/* 选项卡 */
+.center{
+    width:100%;
+    height:386px;
+    position:relative;
+}
+.center_left{
+    width:420px;
+    height:386px;
+    margin:0 auto;
+    margin-top:60px;
+    background:white;
+}
+#tab{
+    width:420px;
+    overflow: hidden;
+}
+#tab>button{
+    width: 210px;
+    float:left;
+    height: 56px;
+    background: #F8F8F8;
+    border:0;
+    font-size: 16px;
+    outline: none;/* 去蓝边 */  
+    border-bottom:solid 2px #F7FAFA;
+    box-sizing: border-box;
+    cursor:pointer;
+
+}
+#tab button.checked{
+    /*background:white;*/
+    color:#00B4A5;
+    border-bottom:solid 2px #00B4A5;
+    box-sizing: border-box;
+}
+#tab div{
+    width: 100%;
+    box-sizing: border-box;
+    display: none;
+}
+#tab div img{
+    width:190px;
+    height:190px;
+    text-align: center;
+    padding:20px 115px;
+}
+#tab div .title{
+    display:block;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    color: #424d57;
+}
+#tab div .text{
+    display:block;
+    text-align: center;
+    margin-top: 14px;
+    color: #a1a9b2;
+}
+#tab div.select{
+    display: block;
+}
+#year_top{
+    width:305.25px;
+    height: 38px;
+    outline:none;
+    border-radius: 5px;
+    border:solid 1px #D7D7D7;
+    margin-top:20px;
+    margin-left:20px;
+    font-size: 16px;
+    text-indent: 5px;
+}    
+.select input{
+    width:300px;
+    height:45px;
+    border:solid 1px #F0F2F5;
+    border-radius: 5px;
+    text-indent: 15px;
+    color:#A1A9B3;
+    margin-top:25px;
+    margin-left: 30px;
+    outline:none;
+}
+.select p{
+    display:none;
+}
+#select_btn{
+    display: block;
+    width:300px;
+    height:40px;
+    background: #419D93;
+    color: #fff;
+    padding: 0;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    z-index: 1;
+}
+</style>
+</head>
+<body>
+<div class="warp">
+
+<!-- 选项卡 -->
+<div class="center">
+    <div class="center_left">
+        <div id="tab">
+            <button type="" class="checked">管理员登录</button>
+            <button type="">员工登录</button>
+            <div class="select">
+        
+                     <input id="userName" type="text" name="name" value="" placeholder="用户名">
+                    
+
+                     
+                      <input class="pw1" type="password" name="name" value="" placeholder="请输入密码">
+                     
+                    <input class="pw2" type="password" name="name" value="" placeholder="请输入密码">
+                      
+                      <input type="button" id="select_btn" value="登录" class="button" />
+                       
+                     
+
+            </div>
+
+            <div>
+                <img src="src/assets/images/qjAppCode.png">
+                <span class="title">
+                    请扫描下载薪人薪事APP
+                    <br>
+                    输入手机号，即可使用
+                </span>
+                <span class="text">
+                    如您无法登录，请联系公司管理员
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+</div>
+</body>
+<script>
+
+    /* 选项卡 */
+    window.onload=function(){
+            var oID=document.getElementById("tab")
+            var oBtn=oID.getElementsByTagName('button')
+            var oDiv=oID.getElementsByTagName('div')
+            console.log(oDiv)
+
+          for(var i=0;i<oBtn.length;i++){
+              oBtn[i].index=i;
+              oBtn[i].onclick=function(){
+                  for(var j=0;j<oBtn.length;j++){
+                      oBtn[j].className="";
+                      oDiv[j].className="";
+                  }
+                  this.className="checked"
+                  oDiv[this.index].className="select";
+              }
+          }
+        }
+
+
+//前台获取后台接口
+$(function(){
+        $('.button').click(function(){
+           var user=$('.userName').val();
+           var pw1=$('.pw1').val();
+           var pw2=$('.pw2').val();
+           console.log(pw1,pw2);
+
+    $.ajax({
+        url:'http://localhost:3000/entry/insert',
+        type:'post',
+        dataType:'json',
+        success:function(e){
+            for(i in e){
+                // console.log(e[i].username);
+                if(user==e[i].username||pw1==e[i].password){
+                    alert('登录成功');
+                    window.location.href="Administrator.html"
+                }
+                else if (userName.length < 4 || userName.length > 10) {
+                    alert('用户名长度为4~10位');
+                }
+          
+                else if (!pw1 || !pw2) {
+                    alert('密码为空');
+                }
+          
+                else if (pw1 !== pw2) {
+                    alert('两次密码输入不一样,请重新输入');
+                }else{
+                    alert('没有此用户');
+
+                }
+          
+            }
+            console.log(e)  
+         }
+     })
+       
+   })
+})
+
+</script>
+</html> 
