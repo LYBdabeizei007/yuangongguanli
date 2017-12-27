@@ -92,6 +92,7 @@ router.post('/recruit', function(req, res, next) {
     	res.send(rows)
     	//console.log(rows)
   })
+  // res.send(1)
 });
 //11.后台招聘增加接口
 router.post('/zp_recruit', function(req, res, next) {

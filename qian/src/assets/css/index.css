@@ -27,6 +27,7 @@ a{text-decoration:none;}
 header{
 	width: 100%;
 	height: 80px;
+	background: #6A7784;
 }
 .hea{
 	margin: 0 50px;
@@ -61,13 +62,28 @@ header{
 }
 
 
+.hea_xm{
+	width: 200px;
+	height: 34px;
+	float: right;
+}
+.hea_xm img{
+	width: 50px;
+	height: 34px;
+}
+.hea_xm span:nth-child(3){
+   
+   color:#00B4A5; 
+}
+
+
 
 
 /*底部*/
 footer{
 	
 	padding: 20px 50px;
-	background: #3D434F;
+	background: #6A7784;
 }
 footer span{
 	float: left;

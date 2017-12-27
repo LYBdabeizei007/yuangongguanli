@@ -86,6 +86,7 @@ Note all DIVs are generated and should not be hard-coded
 	.simply-scroll-btn-right.disabled {
 		background-position: -84px 0 !important;
 	}
+
 	.simply-scroll-btn-right:hover, .simply-scroll-btn-right:focus {
 		background-position: -84px -88px;
 	}
@@ -113,6 +114,7 @@ Note all DIVs are generated and should not be hard-coded
 	.simply-scroll-btn-down:hover, .simply-scroll-btn-down:focus {
 		background-position: -42px -88px;
 	}
+	
 	
 	.simply-scroll-btn-pause {
 		right: 6px;
